@@ -1,0 +1,5 @@
+{
+    "evenBetterToml.schema.associations": {
+        "pyproject\\.toml": "https://json.schemastore.org/pyproject.json"
+    }
+}

@@ -1,0 +1,19 @@
+# Schema: https://json.schemastore.org/pyproject.json
+
+[project]
+name = "pixelist"
+version = "0.1.1"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "numpy>=2.2.1",
+    "pydantic>=2.10.5",
+]
+
+[project.optional-dependencies]
+display = [
+    "matplotlib>=3.5.0",
+    "opencv-python>=4.5.0"
+]
+
