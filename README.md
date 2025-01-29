@@ -54,6 +54,8 @@ results = pipeline.run(
 
 ### Parallel Processing
 
+If you want to experiment with two probable fits in your workflow, make a parallel workflow between those two! Sequential steps after that parallel step would also run on all previous branches without joining the branches. There might be parallel join, or sql like syntax later on for a fine-grain control on batches, but for now, its as simple as that! 
+
 ```python
 # Create parallel branches in your pipeline
 pipeline = ImagePipeline([
@@ -78,11 +80,17 @@ The library includes built-in visualization support:
 ```python
 from pixelist import ImagePipeline, ProcessingMode
 
-pipeline.run(
-    images=input_images,
-    mode=ProcessingMode.WITH_INTERMEDIATE_SHOW_ALL  # Shows all steps
+pipeline.make(
+    images=input_images, # can be a random sample of your dataset
+    filters=[
+        histogram_stretch # Sequential
+        (prewitt_filter, laplacian_filter) # Superposition/Parallel, follows to parallel branches
+    ]
+    mode=ProcessingMode.WITH_INTERMEDIATE_SHOW_ALL  # Shows and store all intermediate steps,
 )
 ```
+
+![Output Diagram](mddoc/sample-output.png)
 
 ## 🛠️ Processing Modes
 
@@ -91,6 +99,10 @@ pipeline.run(
 - `WITH_INTERMEDIATE`: Keep all intermediate results
 - `WITH_INTERMEDIATE_SHOW_ALL`: Visual display of all steps
 - `WITH_INTERMEDIATE_SHOW_FINAL`: Keep all, show final
+
+Final Images are Orange (Leafs of Workflow)
+
+![Workflow Diagram](mddoc/workflow.svg)
 
 <!-- ## 📚 Documentation
 
