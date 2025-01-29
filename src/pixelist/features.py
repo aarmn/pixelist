@@ -1,8 +1,10 @@
-from importlib.util import find_spec
 from functools import wraps
+from importlib.util import find_spec
+
 
 def has_module(module_name: str) -> bool:
     return find_spec(module_name) is not None
+
 
 def check_feature(feature_name: str, required_modules: list[str]):
     def decorator(func):
@@ -15,5 +17,7 @@ def check_feature(feature_name: str, required_modules: list[str]):
                     f"Install with: pip install pixelist[{feature_name}]"
                 )
             return func(*args, **kwargs)
+
         return wrapper
+
     return decorator

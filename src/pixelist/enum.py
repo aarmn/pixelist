@@ -1,8 +1,10 @@
 from enum import Enum
 
+
 class ProcessingStatus(str, Enum):
     INTERMEDIATE = "intermediate"
     FINAL = "final"
+
 
 class ProcessingMode(str, Enum):
     NO_INTERMEDIATE = "no_intermediate"

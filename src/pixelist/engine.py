@@ -1,10 +1,13 @@
+from typing import Dict, List, Optional, Union
+
 import numpy as np
-from .features import check_feature
 from pydantic import BaseModel
-from typing import List, Dict, Union, Optional
-from .filter import Filter, FilterGroup
-from .image import ImageBatch, ImageSuperposition, ValidImageList, ProcessingResult
+
 from .enum import ProcessingMode, ProcessingStatus
+from .features import check_feature
+from .filter import Filter, FilterGroup
+from .image import ImageBatch, ImageSuperposition, ProcessingResult, ValidImageList
+
 
 class DisplayEntity(BaseModel):
     """Represents a single display entry with its images and history."""
@@ -88,11 +91,14 @@ class ImagePipeline:
         Process a single batch of images through a filter function.
 
         Args:
+        ----
             batch (ImageBatch): Batch of images to process
             filter_obj (Filter): Filter function to apply
 
         Returns:
+        -------
             ImageBatch: Processed batch with updated history
+
         """
         processed_images = [filter_obj(img) for img in batch.images]
         return ImageBatch(
@@ -160,10 +166,12 @@ class ImagePipeline:
             mode: ProcessingMode = ProcessingMode.WITH_INTERMEDIATE) -> List[ProcessingResult]:
         """
         Run the pipeline with specified processing mode.
-        
+
         Args:
+        ----
             images: Input images
             mode: ProcessingMode controlling intermediate results and display behavior
+
         """
         if isinstance(images, np.ndarray):
             images = [images]
@@ -247,8 +255,8 @@ def display_images(display_collection: DisplayCollection):
     Args:
         display_collection (DisplayCollection): Collection of images and their histories
     """
-    import matplotlib.pyplot as plt
     import cv2
+    import matplotlib.pyplot as plt
 
     image_dict = {
         entity.history_str(): entity.images
