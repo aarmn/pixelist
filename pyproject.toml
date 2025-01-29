@@ -2,7 +2,7 @@
 
 [project]
 name = "pixelist"
-version = "0.2.2"
+version = "0.2.3"
 description = "Experiment with image filter workflows, by superpositions."
 readme = "README.md"
 requires-python = ">=3.8"
@@ -24,6 +24,13 @@ dependencies = [
     "numpy>=2.2.1",
     "pydantic>=2.10.5",
 ]
+
+[project.urls]
+Homepage = "https://github.com/aarmn/pixelist"
+Repository = "https://github.com/aarmn/pixelist.git"
+Issues = "https://github.com/aarmn/pixelist/issues"
+Changelog = "https://github.com/aarmn/pixelist/releases"
+Documentation = "https://github.com/aarmn/pixelist#readme"
 
 [project.optional-dependencies]
 display = [
