@@ -43,7 +43,7 @@ test:
 # Build package
 build: clean
     @echo "🏗️ Building package..."
-    python -m build
+    uvx --from build pyproject-build.exe
 
 # Upload to PyPI
 publish: ci

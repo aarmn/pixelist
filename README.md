@@ -1,4 +1,4 @@
-Collecting workspace information# Pixelist 🎨
+# Pixelist 🎨
 
 [![PyPI version](https://badge.fury.io/py/pixelist.svg)](https://pypi.org/project/pixelist/)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -92,9 +92,9 @@ pipeline.run(
 - `WITH_INTERMEDIATE_SHOW_ALL`: Visual display of all steps
 - `WITH_INTERMEDIATE_SHOW_FINAL`: Keep all, show final
 
-## 📚 Documentation
+<!-- ## 📚 Documentation
 
-For more examples and detailed documentation, check out our [documentation](https://github.com/yourusername/pixelist/docs).
+For more examples and detailed documentation, check out our [documentation](https://github.com/yourusername/pixelist/docs). -->
 
 ## 🤝 Contributing
 
