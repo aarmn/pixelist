@@ -1,11 +1,12 @@
-from typing import Callable, List, Tuple, Union, Optional
-from pydantic import BaseModel
-from functools import wraps
 import inspect
+from functools import wraps
+from typing import Callable, List, Optional, Tuple, Union
+
+from pydantic import BaseModel
 
 
 class FilterDTO(BaseModel):
-    """DTO for serializable representation of a Filter"""
+    """DTO for serializable representation of a Filter."""
 
     name: str
     description: Optional[str] = None
@@ -16,17 +17,19 @@ class Filter(BaseModel):
     """
     Represents an image processing filter.
 
-    Attributes:
+    Attributes
+    ----------
         func (Callable): The actual filter function
         name (str): Name of the filter
         description (str, optional): Description of what the filter does
+
     """
 
     name: str
     description: Optional[str] = None
     func: Callable
 
-    class Config:
+    class Config:  # noqa: D106
         arbitrary_types_allowed = True
 
     def __init__(
