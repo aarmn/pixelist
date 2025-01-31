@@ -83,7 +83,7 @@ from pixelist import ImagePipeline, ProcessingMode
 pipeline.make(
     images=input_images, # can be a random sample of your dataset
     filters=[
-        histogram_stretch # Sequential
+        histogram_stretch, # Sequential
         (prewitt_filter, laplacian_filter) # Superposition/Parallel, follows to parallel branches
     ]
     mode=ProcessingMode.WITH_INTERMEDIATE_SHOW_ALL  # Shows and store all intermediate steps,
